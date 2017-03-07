@@ -10,15 +10,17 @@ verifier:
 
 transport:
   username: root
-  ssh_key: <%= ENV['TRAINING_AWS_KEYPAIR'] %>
 
 platforms:
-  - name: centos-6.7
+  - name: centos-7.3
   - name: AMI-centos-6.7
     driver_plugin: ec2
     driver_config:
       aws_ssh_key_id: training-ec2-keypair
       image_id: ami-c10044a4
+    transport:
+      ssh_key: <%= ENV['TRAINING_AWS_KEYPAIR'] %>
+
 
 suites:
   - name: essentials

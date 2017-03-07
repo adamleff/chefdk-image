@@ -1,11 +1,15 @@
 #
-# Copyright:: 2015-2016, Chef Software, Inc. <legal@chef.io>
+# Cookbook Name:: line
+# Library:: default
+#
+# Author:: Sean OMeara <someara@chef.io>
+# Copyright 2012-2013, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#    http://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,5 +18,12 @@
 # limitations under the License.
 #
 
-# This recipe is included to make our tests happy.
-# By intention, it does not contain anything.
+def escape_string(string)
+  pattern = /(\+|\'|\"|\.|\*|\/|\-|\\|\(|\)|\{|\}|\^|\$|\[|\])/
+  string.gsub(pattern) { |match| '\\' + match }
+end
+
+def escape_regex(string)
+  pattern = /(\+|\'|\"|\.|\*|\/|\-|\\|\(|\)|\{|\}|\^|\$|\[|\])/
+  string.gsub(pattern) { |match| '\\' + match }
+end
