@@ -24,7 +24,7 @@ end
 
 execute 'chown -R chef:chef /home/chef/cookbooks'
 
-template '/usr/local/bin/run_chef' do
+template '/usr/bin/run_chef' do
   source 'run_chef.erb'
   user 'root'
   group 'root'
